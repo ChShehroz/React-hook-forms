@@ -1,26 +1,15 @@
-import { FormEvent, useRef } from "react";
+import { FormEvent, useState } from "react";
 
 const Forms = () => {
-  const firstNameRef = useRef<HTMLInputElement>(null);
-  const lastNameRef = useRef<HTMLInputElement>(null);
-  const ageRef = useRef<HTMLInputElement>(null);
-  const passRef = useRef<HTMLInputElement>(null);
-
-  const signUp = {
+  const [signUp, setSignUp] = useState({
     firstName: "",
     lastName: "",
-    age: 0,
+    age: "",
     password: "",
-  };
+  });
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-    if (firstNameRef.current !== null)
-      signUp.firstName = firstNameRef.current.value;
-    if (lastNameRef.current !== null)
-      signUp.lastName = lastNameRef.current.value;
-    if (ageRef.current !== null) signUp.age = parseInt(ageRef.current.value);
-    if (passRef.current !== null) signUp.password = passRef.current.value;
     console.log(signUp);
   };
 
@@ -42,7 +31,10 @@ const Forms = () => {
               First Name
             </label>
             <input
-              ref={firstNameRef}
+              onChange={(event) =>
+                setSignUp({ ...signUp, firstName: event.target.value })
+              }
+              value={signUp.firstName}
               id="fname"
               type="text"
               className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -56,7 +48,10 @@ const Forms = () => {
               Last Name
             </label>
             <input
-              ref={lastNameRef}
+              onChange={(event) =>
+                setSignUp({ ...signUp, lastName: event.target.value })
+              }
+              value={signUp.lastName}
               id="lname"
               type="text"
               className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -71,7 +66,10 @@ const Forms = () => {
             Age
           </label>
           <input
-            ref={ageRef}
+            onChange={(event) =>
+              setSignUp({ ...signUp, age: event.target.value })
+            }
+            value={signUp.age}
             id="age"
             type="number"
             className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -85,7 +83,10 @@ const Forms = () => {
             Password
           </label>
           <input
-            ref={passRef}
+            onChange={(event) =>
+              setSignUp({ ...signUp, password: event.target.value })
+            }
+            value={signUp.password}
             id="password"
             type="password"
             className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
