@@ -1,7 +1,20 @@
+import { FormEvent } from "react";
+
 const Forms = () => {
+  const handleSubmit = (event: FormEvent) => {
+    event.preventDefault();
+    console.log("submitted");
+  };
+
   return (
     <div className="flex justify-center items-center h-screen bg-zinc-300">
-      <form className="bg-white shadow-md rounded-xl px-8 p-12 mb-4 w-full max-w-xl">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white shadow-md rounded-xl px-8 p-12 mb-4 w-full max-w-xl"
+      >
+        <h2 className="text-center text-2xl text-neutral-500 mb-7 font-medium uppercase">
+          Forms
+        </h2>
         <div className="flex w-full justify-between mb-3">
           <div className="w-[48%]">
             <label
