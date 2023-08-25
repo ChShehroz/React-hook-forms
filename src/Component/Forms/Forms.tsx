@@ -1,5 +1,12 @@
 const Forms = () => {
-  return <div>Forms</div>;
+  return (
+    <form>
+      <div className="mb-3">
+        <label htmlFor="name"></label>
+        <input id="name" type="text" />
+      </div>
+    </form>
+  );
 };
 
 export default Forms;
