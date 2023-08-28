@@ -3,10 +3,18 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 const schema = z.object({
-  firstName: z.string().min(3),
-  lastName: z.string().min(3),
-  age: z.number().min(18),
-  password: z.string().min(8),
+  firstName: z
+    .string()
+    .min(3, { message: "First name must be 3 characters or more" }),
+  lastName: z
+    .string()
+    .min(3, { message: "Last name must be 3 characters or more" }),
+  age: z
+    .number({ invalid_type_error: "Age must be Required." })
+    .min(18, { message: "Age must be equal to 18 or more" }),
+  password: z
+    .string()
+    .min(8, { message: "Password must be 8 characters or more" }),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -38,13 +46,7 @@ const Forms = () => {
               First Name
             </label>
             <input
-              {...register("firstName", {
-                required: "The First Name field is required",
-                minLength: {
-                  value: 3,
-                  message: "Must be 3 characters or more",
-                },
-              })}
+              {...register("firstName")}
               id="fname"
               type="text"
               className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -66,6 +68,9 @@ const Forms = () => {
               type="text"
               className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
+            {errors.lastName && (
+              <span className="text-red-800">{errors.lastName.message}</span>
+            )}
           </div>
         </div>
         <div className="mb-3">
@@ -76,11 +81,14 @@ const Forms = () => {
             Age
           </label>
           <input
-            {...register("age")}
+            {...register("age", { valueAsNumber: true })}
             id="age"
             type="number"
             className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
+          {errors.age && (
+            <span className="text-red-800">{errors.age.message}</span>
+          )}
         </div>
         <div className="mb-3">
           <label
@@ -95,6 +103,9 @@ const Forms = () => {
             type="password"
             className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
+          {errors.password && (
+            <span className="text-red-800">{errors.password.message}</span>
+          )}
         </div>
         <div className="flex justify-center items-center mt-5">
           <button className="bg-green-300 hover:bg-green-500 text-white font-normal py-2 px-4 rounded-full">
