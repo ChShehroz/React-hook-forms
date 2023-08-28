@@ -23,7 +23,7 @@ const Forms = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
   const onSubmit = (data: FieldValues) => console.log(data);
@@ -108,12 +108,7 @@ const Forms = () => {
           )}
         </div>
         <div className="flex justify-center items-center mt-5">
-          <button
-            disabled={!isValid}
-            className={`bg-green-300 ${
-              isValid ? "hover:bg-green-500" : ""
-            } text-white font-normal py-2 px-4 rounded-full`}
-          >
+          <button className="bg-green-300 hover:bg-green-500 text-white font-normal py-2 px-4 rounded-full">
             Submit
           </button>
         </div>
