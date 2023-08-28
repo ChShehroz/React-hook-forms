@@ -1,22 +1,13 @@
-import { FormEvent, useState } from "react";
+import { FieldValues, useForm } from "react-hook-form";
 
 const Forms = () => {
-  const [signUp, setSignUp] = useState({
-    firstName: "",
-    lastName: "",
-    age: "",
-    password: "",
-  });
+  const { register, handleSubmit } = useForm();
 
-  const handleSubmit = (event: FormEvent) => {
-    event.preventDefault();
-    console.log(signUp);
-  };
-
+  const onSubmit = (data: FieldValues) => console.log(data);
   return (
     <div className="flex justify-center items-center h-screen bg-zinc-300">
       <form
-        onSubmit={handleSubmit}
+        onSubmit={handleSubmit(onSubmit)}
         className="bg-white shadow-md rounded-xl px-8 p-12 mb-4 w-full max-w-xl"
       >
         <h2 className="text-center text-2xl text-neutral-500 mb-7 font-medium uppercase">
@@ -31,10 +22,7 @@ const Forms = () => {
               First Name
             </label>
             <input
-              onChange={(event) =>
-                setSignUp({ ...signUp, firstName: event.target.value })
-              }
-              value={signUp.firstName}
+              {...register("firstName")}
               id="fname"
               type="text"
               className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -48,10 +36,7 @@ const Forms = () => {
               Last Name
             </label>
             <input
-              onChange={(event) =>
-                setSignUp({ ...signUp, lastName: event.target.value })
-              }
-              value={signUp.lastName}
+              {...register("lastName")}
               id="lname"
               type="text"
               className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -66,10 +51,7 @@ const Forms = () => {
             Age
           </label>
           <input
-            onChange={(event) =>
-              setSignUp({ ...signUp, age: event.target.value })
-            }
-            value={signUp.age}
+            {...register("age")}
             id="age"
             type="number"
             className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -83,10 +65,7 @@ const Forms = () => {
             Password
           </label>
           <input
-            onChange={(event) =>
-              setSignUp({ ...signUp, password: event.target.value })
-            }
-            value={signUp.password}
+            {...register("password")}
             id="password"
             type="password"
             className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
