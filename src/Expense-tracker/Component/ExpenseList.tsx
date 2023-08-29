@@ -15,8 +15,8 @@ interface Props {
 const ExpenseList = ({ expenses, onDelete }: Props) => {
   if (expenses.length === 0) return null;
   return (
-    <div className="flex justify-center items-center h-screen bg-zinc-300">
-      <table className="min-w-max w-[70%] table-auto text-left bg-white rounded-3xl shadow-lg">
+    <div className="w-full flex justify-center items-center">
+      <table className="min-w-max w-[60%] table-auto text-left bg-white rounded-3xl shadow-lg">
         <thead className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-white ">
           <tr className="even:bg-gray-50/50 w-full h-16 border-gray-300 border-b py-8">
             <th className="pl-14 text-sm rounded-tl-3xl">Description</th>
