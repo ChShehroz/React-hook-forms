@@ -52,7 +52,9 @@ const Forms = () => {
               className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
             {errors.firstName && (
-              <span className="text-red-800">{errors.firstName.message}</span>
+              <span className="text-red-800 text-xs">
+                {errors.firstName.message}
+              </span>
             )}
           </div>
           <div className="w-[48%]">
@@ -69,7 +71,9 @@ const Forms = () => {
               className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
             {errors.lastName && (
-              <span className="text-red-800">{errors.lastName.message}</span>
+              <span className="text-red-800 text-xs">
+                {errors.lastName.message}
+              </span>
             )}
           </div>
         </div>
@@ -87,7 +91,7 @@ const Forms = () => {
             className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
           {errors.age && (
-            <span className="text-red-800">{errors.age.message}</span>
+            <span className="text-red-800 text-xs">{errors.age.message}</span>
           )}
         </div>
         <div className="mb-3">
@@ -104,7 +108,9 @@ const Forms = () => {
             className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
           {errors.password && (
-            <span className="text-red-800">{errors.password.message}</span>
+            <span className="text-red-800 text-xs">
+              {errors.password.message}
+            </span>
           )}
         </div>
         <div className="flex justify-center items-center mt-5">
