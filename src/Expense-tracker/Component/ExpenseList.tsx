@@ -1,3 +1,5 @@
+import styles from "../../assets/Style/Style.module.css";
+
 interface Expense {
   id: number;
   description: string;
@@ -24,10 +26,14 @@ const ExpenseList = ({ expenses, onDelete }: Props) => {
           </tr>
         </thead>
         <tbody>
-          {expenses.map((expense) => (
+          {expenses.map((expense, index) => (
             <tr
               key={expense.id}
-              className="h-14 border-gray-300 border-b hover:bg-gray-100 transition"
+              className={`${
+                index % 2 === 0
+                  ? `${styles.rowEven} ${styles.rowEvenHover}`
+                  : `${styles.rowOdd} ${styles.rowEvenHover}`
+              }`}
             >
               <td className="pl-14">{expense.description}</td>
               <td className="px-5">{expense.amount}</td>

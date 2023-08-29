@@ -1,0 +1,11 @@
+.rowEven {
+  @apply h-14 border-gray-300 border-b bg-white transition duration-300 ease-in-out;
+}
+
+.rowEvenHover:hover {
+  background: rgb(206, 205, 205) !important;
+}
+
+.rowOdd {
+  @apply h-14 border-gray-300 border-b bg-gradient-to-r from-purple-50 via-pink-50 to-red-50 transition duration-300 ease-in-out;
+}
