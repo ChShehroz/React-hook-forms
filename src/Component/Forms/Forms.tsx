@@ -35,7 +35,7 @@ const Forms = () => {
     <div className="flex justify-center items-center h-screen bg-[#f8f9fa]">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="bg-white shadow-md rounded-xl px-8 p-12 mb-4 w-full max-w-xl"
+        className="bg-white shadow-md rounded-xl px-8 p-12 mb-4 w-full max-w-2xl"
       >
         <h2 className="text-center text-2xl text-neutral-500 mb-7 font-medium uppercase">
           Forms
@@ -53,7 +53,7 @@ const Forms = () => {
               id="fname"
               type="text"
               placeholder="Enter your first name"
-              className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-7 focus:outline-none focus:shadow-outline"
             />
             {errors.firstName && (
               <span className="text-red-800 text-xs">
@@ -73,7 +73,7 @@ const Forms = () => {
               id="lname"
               type="text"
               placeholder="Enter your last name"
-              className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-7 focus:outline-none focus:shadow-outline"
             />
             {errors.lastName && (
               <span className="text-red-800 text-xs">
@@ -94,7 +94,7 @@ const Forms = () => {
             id="age"
             type="number"
             placeholder="Enter your age "
-            className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-7 focus:outline-none focus:shadow-outline"
           />
           {errors.age && (
             <span className="text-red-800 text-xs">{errors.age.message}</span>
@@ -112,7 +112,7 @@ const Forms = () => {
             id="password"
             type="password"
             placeholder="Enter your password"
-            className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-7 focus:outline-none focus:shadow-outline"
           />
           {errors.password && (
             <span className="text-red-800 text-xs">

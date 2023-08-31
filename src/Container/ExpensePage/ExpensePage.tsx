@@ -17,7 +17,6 @@ const ExpensePage = () => {
 
   return (
     <div className="flex flex-col justify-center items-center h-screen bg-[#f8f9fa]">
-      {/* Use the ExpenseFilter component here */}
       <ExpenseFilter
         onSelectCategory={(category) => setSelectedCategory(category)}
       />
