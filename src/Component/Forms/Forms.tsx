@@ -23,13 +23,16 @@ const Forms = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm<FormData>({ resolver: zodResolver(schema) });
+    formState: { errors, isValid },
+  } = useForm<FormData>({
+    resolver: zodResolver(schema),
+    mode: "onChange",
+  });
 
   const onSubmit = (data: FieldValues) => console.log(data);
 
   return (
-    <div className="flex justify-center items-center h-screen bg-zinc-300">
+    <div className="flex justify-center items-center h-screen bg-[#f8f9fa]">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="bg-white shadow-md rounded-xl px-8 p-12 mb-4 w-full max-w-xl"
@@ -49,6 +52,7 @@ const Forms = () => {
               {...register("firstName")}
               id="fname"
               type="text"
+              placeholder="Enter your first name"
               className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
             {errors.firstName && (
@@ -68,6 +72,7 @@ const Forms = () => {
               {...register("lastName")}
               id="lname"
               type="text"
+              placeholder="Enter your last name"
               className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
             {errors.lastName && (
@@ -88,6 +93,7 @@ const Forms = () => {
             {...register("age", { valueAsNumber: true })}
             id="age"
             type="number"
+            placeholder="Enter your age "
             className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
           {errors.age && (
@@ -105,6 +111,7 @@ const Forms = () => {
             {...register("password")}
             id="password"
             type="password"
+            placeholder="Enter your password"
             className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
           {errors.password && (
@@ -114,7 +121,14 @@ const Forms = () => {
           )}
         </div>
         <div className="flex justify-center items-center mt-5">
-          <button className="bg-green-300 hover:bg-green-500 text-white font-normal py-2 px-4 rounded-full">
+          <button
+            disabled={!isValid}
+            className={` ${
+              isValid
+                ? "bg-green-500 hover:bg-green-300 cursor-pointer"
+                : "bg-green-300 cursor-not-allowed"
+            } text-white font-normal py-2 px-4 rounded-full`}
+          >
             Submit
           </button>
         </div>

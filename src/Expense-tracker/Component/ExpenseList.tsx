@@ -50,7 +50,7 @@ const ExpenseList = ({ expenses, onDelete }: Props) => {
           ))}
         </tbody>
         <tfoot>
-          <tr className="h-14 border-gray-300 border-b">
+          <tr className="h-14 border-gray-300 ">
             <td className="pl-14 font-bold">Total</td>
             <td className="px- font-bold">
               ${" "}
