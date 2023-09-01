@@ -1,6 +1,6 @@
 import styles from "../../assets/Style/Style.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { faPenToSquare, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 interface Expense {
   id: number;
@@ -25,7 +25,8 @@ const ExpenseList = ({ expenses, onDelete }: Props) => {
             <th className="pl-14 text-sm rounded-tl-3xl">Description</th>
             <th className="px-5 text-sm ">Amount</th>
             <th className="px-5 text-sm ">Category</th>
-            <th className="px-5 text-sm rounded-tr-3xl"></th>
+            <th className="px-1 text-sm "></th>
+            <th className="px-1 text-sm rounded-tr-3xl"></th>
           </tr>
         </thead>
         <tbody>
@@ -41,7 +42,18 @@ const ExpenseList = ({ expenses, onDelete }: Props) => {
               <td className="pl-14">{expense.description}</td>
               <td className="px-5">{expense.amount}</td>
               <td className="px-5">{expense.category}</td>
-              <td className="px-5">
+              <td className="px-1">
+                <div className="group relative">
+                  <button className="border border-none hover:border-red-500 text-stone-700 hover:bg-neutral-900 hover:text-white px-3 py-1.5 rounded-md">
+                    <FontAwesomeIcon icon={faPenToSquare} />
+                  </button>
+
+                  <span className="absolute -top-7 -left-10 transition-all scale-0 rounded-lg bg-gray-800 p-2 text-xs text-white group-hover:scale-100">
+                    Edit
+                  </span>
+                </div>
+              </td>
+              <td className="px-1">
                 <div className="group relative">
                   <button
                     className="border border-none hover:border-red-500 text-red-500 hover:bg-red-500 hover:text-white px-3 py-1.5 rounded-md"
@@ -50,7 +62,7 @@ const ExpenseList = ({ expenses, onDelete }: Props) => {
                     <FontAwesomeIcon icon={faTrashCan} />
                   </button>
 
-                  <span className="absolute top-0.5 -left-14 transition-all scale-0 rounded-lg bg-gray-800 p-2 text-xs text-white group-hover:scale-100">
+                  <span className="absolute -top-7 -left-12 transition-all scale-0 rounded-lg bg-gray-800 p-2 text-xs text-white group-hover:scale-100">
                     Delete
                   </span>
                 </div>
@@ -68,7 +80,8 @@ const ExpenseList = ({ expenses, onDelete }: Props) => {
                 .toFixed(2)}
             </td>
             <td className="px-5"></td>
-            <td className="px-5"></td>
+            <td className="px-1"></td>
+            <td className="px-1"></td>
           </tr>
         </tfoot>
       </table>
