@@ -18,7 +18,7 @@ const ExpenseList = ({ expenses, onDelete }: Props) => {
   if (expenses.length === 0) return null;
 
   return (
-    <div className="w-full flex justify-center items-center">
+    <div className="flex justify-center items-center">
       <table className="min-w-max max-w-2xl w-full table-auto text-left bg-white rounded-3xl shadow-lg">
         <thead className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-white ">
           <tr className="even:bg-gray-50/50 w-full h-16 border-gray-300 border-b py-8">
@@ -44,7 +44,7 @@ const ExpenseList = ({ expenses, onDelete }: Props) => {
               <td className="px-5">
                 <div className="group relative">
                   <button
-                    className="border border-none hover:border-red-500 text-red-500 hover:bg-red-500 hover:text-white px-4 py-1 rounded-full"
+                    className="border border-none hover:border-red-500 text-red-500 hover:bg-red-500 hover:text-white px-3 py-1.5 rounded-md"
                     onClick={() => onDelete(expense.id)}
                   >
                     <FontAwesomeIcon icon={faTrashCan} />

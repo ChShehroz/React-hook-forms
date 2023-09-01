@@ -17,17 +17,15 @@ const ExpensePage = () => {
       : expense.filter((e) => e.category === selectedCategory);
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen bg-[#f8f9fa]">
-      <div>
-        <ExpenseFilter
-          onSelectCategory={(category) => setSelectedCategory(category)}
-        />
+    <div className="my-12">
+      <ExpenseFilter
+        onSelectCategory={(category) => setSelectedCategory(category)}
+      />
 
-        <ExpenseList
-          expenses={visibleExpense}
-          onDelete={(id) => setExpense(expense.filter((e) => e.id != id))}
-        />
-      </div>
+      <ExpenseList
+        expenses={visibleExpense}
+        onDelete={(id) => setExpense(expense.filter((e) => e.id != id))}
+      />
     </div>
   );
 };
