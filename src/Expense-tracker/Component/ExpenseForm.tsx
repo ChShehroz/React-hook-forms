@@ -37,11 +37,12 @@ const ExpenseForm = ({ onSubmit }: Props) => {
   };
 
   return (
-    <div className="w-full max-w-2xl">
+    <div className="w-full ">
       <form
         onSubmit={handleSubmit(submitData)}
-        className="bg-white shadow-md rounded-xl px-8 p-12 mb-4 "
+        className="bg-white h-[93vh] shadow-md rounded-xl px-8 p-12  "
       >
+        <h3 className="mb-10 text-2xl text-[#9a9a9a]">Expenditure</h3>
         <div className="mb-3">
           <label
             htmlFor="description"

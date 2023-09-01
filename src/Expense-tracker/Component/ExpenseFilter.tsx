@@ -4,9 +4,10 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 interface Props {
   onSelectCategory: (category: string) => void;
+  onAddRecord: () => void;
 }
 
-const ExpenseFilter = ({ onSelectCategory }: Props) => {
+const ExpenseFilter = ({ onSelectCategory, onAddRecord }: Props) => {
   return (
     <div className="min-w-max max-w-2xl w-full flex gap-3 justify-center items-center m-auto">
       <select
@@ -21,7 +22,10 @@ const ExpenseFilter = ({ onSelectCategory }: Props) => {
         ))}
       </select>
       <div className="group relative w-[10%] flex justify-center items-center mb-5">
-        <button className="border border-none hover:border-red-500 text-[#9a9a9a] hover:bg-slate-500 hover:text-white px-3 py-1.5 rounded-md">
+        <button
+          onClick={onAddRecord}
+          className="border border-none hover:border-red-500 text-[#9a9a9a] hover:bg-slate-500 hover:text-white px-3 py-1.5 rounded-md"
+        >
           <FontAwesomeIcon icon={faPlus} />
         </button>
         <span className="absolute -top-8 -right-16 transition-all scale-0 rounded-lg bg-gray-800 p-2 text-xs text-white group-hover:scale-100">

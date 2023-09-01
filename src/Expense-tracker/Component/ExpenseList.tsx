@@ -50,7 +50,7 @@ const ExpenseList = ({ expenses, onDelete }: Props) => {
                     <FontAwesomeIcon icon={faTrashCan} />
                   </button>
 
-                  <span className="absolute top-0 -left-14 transition-all scale-0 rounded-lg bg-gray-800 p-2 text-xs text-white group-hover:scale-100">
+                  <span className="absolute top-0.5 -left-14 transition-all scale-0 rounded-lg bg-gray-800 p-2 text-xs text-white group-hover:scale-100">
                     Delete
                   </span>
                 </div>
